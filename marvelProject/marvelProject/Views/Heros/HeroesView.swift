@@ -13,28 +13,23 @@ struct HeroesView: View {
     
     var body: some View {
         NavigationStack{
-            List{
+            Text("Marvel Heroes")
+                .bold()
+                .font(.title)
+            ScrollView{
                 if let heroes = viewModel.heroes{
                     ForEach(heroes) { hero in
                         NavigationLink {
-                            Text("Detalle view")
-                            //HeroesDetailView(hero: hero)
+                            HeroDetailView(viewModel: SeriesViewModel(hero: hero))
                         } label: {
                             HeroRowView(hero: hero)
                         }
                     }
-                    .frame(height: 300)
+                    .frame(height: 328)
                 }
             }
-            
-        }
-        // Barra de búsqueda
-        .searchable(text: $filter,
-                    placement: .navigationBarDrawer(displayMode: .always),
-                    prompt: "Buscar heroe...")
-        .onChange(of: filter) { newValue in
-            print("busqueda: \(newValue)")
-            viewModel.getHeros(filtro: newValue)
+            .listRowSeparator(.hidden)
+            .id(0)
         }
     }
 }

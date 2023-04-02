@@ -10,7 +10,6 @@ import SwiftUI
 @main
 struct marvelProjectApp: App {
     let persistenceController = PersistenceController.shared
-    
     @StateObject
     var rootViewModel = RootViewModel()
     

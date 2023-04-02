@@ -9,20 +9,15 @@ import SwiftUI
 
 struct RootView: View {
     @EnvironmentObject var rootviewModel: RootViewModel
-    var body: some View { // caja de estados
+    var body: some View { 
+        // Caja de estados
         switch rootviewModel.status{
         case .none:
             HeroesView(viewModel: HeroViewModel())
-            Text("Nada")
-        case .loaded:
-            Text("Cargado")
-            //PrincipalView()
         case .error(error: let errorString):
-            Text("Error")
-            //ErrorView(error: errorString)
+            ErrorView(error: errorString)
         case .loading:
-            Text("Cargando")
-            //LoaderView()
+            LoadingView()
         }
     }
 }

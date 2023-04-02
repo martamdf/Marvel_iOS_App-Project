@@ -9,5 +9,5 @@ import Foundation
 
 // estados de la navegación principal
 enum Status {
-    case none, loading, loaded, error(error: String)
+    case none, loading, error(error: String)//loaded, 
 }

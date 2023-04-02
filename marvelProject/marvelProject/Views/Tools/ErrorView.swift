@@ -18,31 +18,23 @@ struct ErrorView: View {
     var body: some View {
         VStack{
             Spacer()
-            
             Image(systemName: "exclamationmark.triangle.fill")
                 .resizable()
                 .foregroundColor(.red)
-                .frame(width: 200, height: 200)
+                .frame(width: 100, height: 100)
                 .padding()
-                //.offset(x:20) //ajuste maximo.
                 .id(0)//para testing
             
             Text("\(textError)")
                 .foregroundColor(.red)
                 .font(.title)
                 .id(1)//para testing
-                
-            
             
             Spacer()
-            //boton
-            
-            
             Button("Volver") {
-                //volver al login
-                self.viewModel.status = .none //asi vuelve
+                self.viewModel.status = .none
             }
-            .frame(width: 300, height: 50)
+            .frame(width: 200, height: 50)
             .background(.orange)
             .font(.title2)
             .foregroundColor(.white)
@@ -55,6 +47,6 @@ struct ErrorView: View {
 
 struct ErrorView_Previews: PreviewProvider {
     static var previews: some View {
-        ErrorView(error: "Prueba")
+        ErrorView(error: "Test")
     }
 }
